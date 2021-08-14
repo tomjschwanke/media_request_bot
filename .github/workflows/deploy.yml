@@ -28,7 +28,7 @@ jobs:
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: ${{ secrets.REMOTE_TARGET }}
-          EXCLUDE: "/.idea/"
+          EXCLUDE: "/.idea/, /node_modules/, /package.json, /package-lock.json"
           
     - name: ls -a via ssh
       uses: garygrossgarten/github-action-ssh@release
@@ -36,4 +36,4 @@ jobs:
         command: sudo systemctl restart media-request-bot.service && sudo systemctl status media-request-bot.service
         host: ${{ secrets.REMOTE_HOST }}
         username: ${{ secrets.REMOTE_USER }}
-        privateKey: ${{ secrets.PRIVATE_KEY}}
+        privateKey: ${{ secrets.SSH_PRIVATE_KEY}}
