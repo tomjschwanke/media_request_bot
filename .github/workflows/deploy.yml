@@ -34,7 +34,7 @@ jobs:
     - name: Restart bot & check status
       uses: garygrossgarten/github-action-ssh@release
       with:
-        command: sudo systemctl restart media-request-bot.service && sudo systemctl status media-request-bot.service
+        command: sudo systemctl restart media-request-bot.service && sleep 10 && sudo systemctl status media-request-bot.service
         host: ${{ secrets.REMOTE_HOST }}
         username: ${{ secrets.REMOTE_USER }}
         privateKey: ${{ secrets.SSH_PRIVATE_KEY}}
