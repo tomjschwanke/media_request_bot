@@ -30,7 +30,7 @@ jobs:
           TARGET: ${{ secrets.REMOTE_TARGET }}
           EXCLUDE: "/.idea/, /node_modules/, /package.json, /package-lock.json"
           
-    - name: ls -a via ssh
+    - name: Restart bot & check status
       uses: garygrossgarten/github-action-ssh@release
       with:
         command: sudo systemctl restart media-request-bot.service && sudo systemctl status media-request-bot.service
