@@ -1,5 +1,5 @@
 const { Client, Intents, MessageActionRow, MessageButton} = require('discord.js');
-const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_REACTIONS] });
+const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 
 const bot_token         = process.env['bot_token'];
 const bot_uid           = process.env['bot_uid'];
