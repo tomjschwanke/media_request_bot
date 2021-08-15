@@ -64,6 +64,7 @@ client.login(bot_token)
         process.exit(1);
     });
 
-function containsURL(str) {
-    return true;
+function containsURL(string) {
+    const regex = new RegExp("^.*(https?:\\/\\/.+\\.\\S+)\\s?.*");
+    return regex.test(string);
 }
