@@ -35,7 +35,7 @@ async function messageToApproval(message) {
                 .setLabel('Deny')
                 .setStyle('DANGER'),
         );
-    await client.channels.cache.get(approval_channel).send({ content: `Media request from ${message.author}\n\n${message.content}`, components: [row]}).catch();
+    await client.channels.cache.get(approval_channel).send({ content: `Media request from ${message.author}:\n\n${message.content}`, components: [row]}).catch();
     message.delete().catch();
 }
 
