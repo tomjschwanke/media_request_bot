@@ -7,6 +7,8 @@ Media request queue for Discord, perfect for streamers
 3. When mods deny it, it's just deleted, but when it's accepted its then mirrored to another hidden channel, where the streamer can go through the accepted memes.
 4. Once the video / meme has been shown on stream, the streamer can click a button to delete it from the channel.
 
+#### The bot only accepts media with URLs, that means Images uploaded directly will work as they're are just a URL pointing to the image on Discords servers. Plain text messages will be deleted without going to the approval channel.
+
 ## Setup
 - Create an application with a bot on the Discord developer portal to obtain a bot-token and the bots UID
 - Setup the request, approval and accepted channels on your Discord
@@ -18,6 +20,7 @@ Media request queue for Discord, perfect for streamers
 
 ## Planned / Todo
 - [ ] Post accepted memes to a public channel as well
+- [ ] Filter for URLs (eg. to only allow images directly uploaded by filtering for the domain or only images by filtering the file extension)
 - [ ] Dynamic loading of past messages while the bot was offline instead of a fixed amount
 - [ ] Make setup easier by providing easy commands to reassign the channel / assing channels at setup --> Requires storage
   - [ ] Make a hosted version so people don't have to self-host
