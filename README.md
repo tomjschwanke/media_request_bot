@@ -13,7 +13,7 @@ Media request queue for Discord, perfect for streamers
 - Create an application with a bot on the Discord developer portal to obtain a bot-token and the bots UID
 - Setup the request, approval and accepted channels on your Discord
 - Note down the channel IDs by enabling Discord developer mode, right clicking the desired channel and selecting 'Copy ID'
-- Invite the bot by inserting your bots UUID into the following link
+- Invite the bot by inserting your bots application client-id into the following link `https://discord.com/api/oauth2/authorize?client_id=[CLIENT_ID]&permissions=92160&scope=bot`
 - Install the latest stable nodejs version
 - Download the current `bot.js` file
 - Run the bot with nodejs and pass `bot_token`, `bot_uid`, `request_channel`, `approval_channel` and `accepted_channel` as environment variables
