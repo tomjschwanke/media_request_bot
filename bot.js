@@ -21,7 +21,10 @@ client.on('messageCreate', message => {
 })
 
 function fetchOldMessages() {
-    //TODO: make promise based
+    /*  TODO: make promise based
+        Current problem: we can only fetch a set amount of msgs from the past
+        while the bot was offline, I'd like to change this
+     */
     client.channels.cache.get(request_channel).messages.fetch({limit: 100})
         .then(messages => {
             Array.from(messages).reverse().forEach(message => {
