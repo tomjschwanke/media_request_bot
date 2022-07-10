@@ -3,7 +3,7 @@
 /**
  * Formats the current time
  *
- * @returns {string} Time
+ * @returns {String} Time
  */
 const getDate = function(){
     const date = new Date();
@@ -18,20 +18,59 @@ const getDate = function(){
     return "[" + hour + ":" + min + ":" + sec + "]";
 };
 
-module.exports = {
-    error(input){
+/**
+ * Very basic logging utility
+ *
+ * @class Log
+ */
+class Log {
+    /**
+     * Logs an error
+     *
+     * @static
+     * @public
+     * @param {any} input
+     * @memberof Log
+     */
+    static error(input){
         console.log(" \x1b[41m\x1b[30m x \x1b[0m\x1b[31m [ERROR] " + getDate() + " - " + input + "\x1b[0m");
-    },
+    }
 
-    warn(input){
+    /**
+     * Logs a warning
+     *
+     * @static
+     * @public
+     * @param {any} input
+     * @memberof Log
+     */
+    static warn(input){
         console.log(" \x1b[43m\x1b[30m ! \x1b[0m\x1b[33m [WARN]  " + getDate() + " - " + input + "\x1b[0m");
-    },
+    }
 
-    info(input){
+    /**
+     * Logs an informational message
+     *
+     * @static
+     * @public
+     * @param {any} input
+     * @memberof Log
+     */
+    static info(input){
         console.log(" \x1b[44m\x1b[30m i \x1b[0m\x1b[36m [INFO]  " + getDate() + " - " + input + "\x1b[0m");
-    },
+    }
 
-    done(input){
+    /**
+     * Logs a success message
+     *
+     * @static
+     * @public
+     * @param {any} input
+     * @memberof Log
+     */
+    static done(input){
         console.log(" \x1b[42m\x1b[30m ✓ \x1b[0m\x1b[32m [DONE]  " + getDate() + " - " + input + "\x1b[0m");
-    },
-};
+    }
+}
+
+module.exports = Log;
