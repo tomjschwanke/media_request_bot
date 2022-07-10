@@ -76,20 +76,27 @@ class Handler {
         return regex.test(string);
     }
 
+    /**
+     * Fetch old messages from a stored timestamp on
+     *
+     * @returns {Promise<any>}
+     * @public
+     * @memberof Handler
+     */
     async fetchOldMessages(){
         const lastMessageTimestamp = await this.store.get("last_message");
+        if (!lastMessageTimestamp) return log.warn("No last message timestamp stored. Skipping fetching old messages.");
         log.info(`Fetching old messages from timestamp ${lastMessageTimestamp} on...`);
 
         const channel = /** @type {TextChannel} */ (
             this.client.channels.cache.get(this.request_channel)
         );
 
-        channel?.messages.fetch({
+        return channel?.messages.fetch({
             after: lastMessageTimestamp,
             limit: 100,
         }).then(messages => {
             const msgArray = Array.from(messages);
-            // if array is empty
             if (msgArray.length === 0) return log.done("Nothing to fetch!");
             log.done(`Fetched ${msgArray.length} message${msgArray.length > 1 ? "s" : ""}!`);
             return msgArray.reverse().forEach(message => this.handleMessage(message[1]));
