@@ -1,2 +1,6 @@
-# Project exclude paths
+# Dependencies
 /node_modules/
+
+# Data
+**/data/*
+!**/.gitkeep
