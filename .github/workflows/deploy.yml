@@ -4,11 +4,6 @@ on:
   push:
     branches:
       - deploy
-    paths:
-      - 'bot.js'
-      - 'package.json'
-      - 'package-lock.json'
-      - '.github/workflows/deploy.yml'
 
 jobs:
   Deploy:
